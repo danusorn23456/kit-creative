@@ -1,6 +1,6 @@
 # Kit Like Creative
 
-The project aims to improve and enhance CSS resources while fostering a community platform for CSS enthusiasts. The goal is to provide a comprehensive and up-to-date collection of CSS tools, tutorials, resources, and a space for users to share their stories, tools, and other valuable CSS-related content.
+The project aims to improve and enhance frotend dev resources while fostering a community platform for CSS enthusiasts
 
 ![preview](https://raw.githubusercontent.com/danusorn23456/kit-like-creative/3455c46df326d66d3584f8c412087fb716d71e6e/src/assets/preview-a.png)
 
