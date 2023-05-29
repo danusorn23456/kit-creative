@@ -2,18 +2,29 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { CSSGeneratorPage } from "~/pages";
+import { CSSGeneratorPage, HomePage, UnderConstructionPage } from "~/pages";
+import { PagePath } from "~/types";
 
 export interface RoutesProps { }
 
 function Routes({ }: RoutesProps) {
 
-  const router = createBrowserRouter([
+  const routeObject = [
     {
-      path: "/",
+      path: PagePath.Home,
+      element: <HomePage />
+    },
+    {
+      path: PagePath.CSSGenerator,
       element: <CSSGeneratorPage />
+    },
+    {
+      path: PagePath.CodeSnack,
+      element: <UnderConstructionPage />
     }
-  ])
+  ]
+
+  const router = createBrowserRouter(routeObject)
 
   return <RouterProvider router={router} />
 }
