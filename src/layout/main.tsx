@@ -9,7 +9,7 @@ export interface MainLayoutProps {
 function MainLayout({ children }: MainLayoutProps) {
 
     return (
-        <div className="bg-gradient-to-b from-gray-950 to-gray-900 w-full min-h-screen overflow-auto pt-14 pb-28 flex flex-col">
+        <div className="bg-gradient-to-b from-gray-950 to-gray-900 w-full min-h-screen overflow-auto pt-14 pb-28 flex flex-col relative">
             <NavigationBar />
             {children}
         </div>
