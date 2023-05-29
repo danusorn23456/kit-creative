@@ -68,9 +68,11 @@ function CSSGeneratorPage({ }: CSSGeneratorPageProps) {
     return (
         <MainLayout>
             <main className='container max-w-6xl mx-auto h-full relative px-4 flex flex-col space-y-16 py-16'>
-                <div className='flex flex-col space-y-3'>
-                    <h2 className='text-2xl md:text-4xl text-white uppercase font-bold'>get some <span className='text-orange-600'>css</span> variable</h2>
-                    <p className='text-sm md:text-md text-white max-w-96'>Speed up your design process with our time-saving CSS variable generator. Quickly generate a palette of custom colors to bring your any project to life.</p>
+                <div className='flex flex-col space-y-6'>
+                    <div>
+                        <h2 className='mb-2 text-2xl md:text-4xl text-white uppercase font-bold'>get some <span className='text-orange-600'>css</span> variable</h2>
+                        <p className='text-sm md:text-md text-white w-80 sm:w-96'>Speed up your design process with our time-saving CSS variable generator. Quickly generate a palette of custom colors to bring your any project to life.</p>
+                    </div>
                     <p className='text-white flex space-x-2'><span>support</span><span>:</span><span className='px-1 bg-white rounded-sm text-black'>css</span><span className='px-1 bg-white rounded-sm text-black'>scss</span></p>
                 </div>
                 <div className='flex flex-col space-y-4 pt-4'>
