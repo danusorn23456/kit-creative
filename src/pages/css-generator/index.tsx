@@ -41,9 +41,9 @@ function CSSGeneratorPage({}: CSSGeneratorPageProps) {
   }
 
   useEffect(() => {
-    const cssTexts = `:root ${JSON.stringify(rawCssVar, null, 2)
-      .replace(/"/g, "")
-      .replace(/,/g, ";")}`;
+    const cssTexts = `:root ${JSON.stringify(rawCssVar, null, 3)
+      .replace(/#(.*?)"/g, "#$1;")
+      .replace(/"|,/g, "")}`;
     switch (cssType) {
       case "css":
         return setCodeTexts(cssTexts);
