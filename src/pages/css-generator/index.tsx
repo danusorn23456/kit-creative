@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ChangeEvent } from "react";
 import { ColorPicker } from "~/components";
 import { useCssVariable } from "~/hooks";
@@ -21,11 +21,11 @@ function CSSGeneratorPage({}: CSSGeneratorPageProps) {
     const inputNode = e.target as HTMLInputElement;
     const hex = inputNode.value;
 
-    const lighter = adjustHexLightness(hex, 0.2);
-    const light = adjustHexLightness(hex, 0.1);
+    const lighter = adjustHexLightness(hex, 0.18);
+    const light = adjustHexLightness(hex, 0.14);
     const base = adjustHexLightness(hex, 0);
-    const dark = adjustHexLightness(hex, -0.1);
-    const darker = adjustHexLightness(hex, -0.2);
+    const dark = adjustHexLightness(hex, -0.14);
+    const darker = adjustHexLightness(hex, -0.18);
 
     setProperty(role, {
       darker,

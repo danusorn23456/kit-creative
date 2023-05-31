@@ -35,7 +35,7 @@ function useCssVariable(initial: Record<string, any>): {
     }
     let updateRawCssVar: Record<string, string> = {};
     Object.entries(rootNode.current.style)
-      .map(([key, name]) => {
+      .map(([, name]) => {
         return name;
       })
       .filter((name) => name.startsWith("--"))
