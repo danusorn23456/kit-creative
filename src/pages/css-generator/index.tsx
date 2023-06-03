@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChangeEvent } from "react";
-import { ColorPicker } from "~/components";
+import { ColorBox, ColorPicker, ShinyPaper } from "~/components";
 import { useCssVariable } from "~/hooks";
 import { MainLayout } from "~/layout";
 import { adjustHexLightness } from "~/utils";
@@ -21,11 +21,11 @@ function CSSGeneratorPage({}: CSSGeneratorPageProps) {
     const inputNode = e.target as HTMLInputElement;
     const hex = inputNode.value;
 
-    const lighter = adjustHexLightness(hex, 0.18);
-    const light = adjustHexLightness(hex, 0.14);
+    const lighter = adjustHexLightness(hex, 0.15);
+    const light = adjustHexLightness(hex, 0.1);
     const base = adjustHexLightness(hex, 0);
-    const dark = adjustHexLightness(hex, -0.14);
-    const darker = adjustHexLightness(hex, -0.18);
+    const dark = adjustHexLightness(hex, -0.1);
+    const darker = adjustHexLightness(hex, -0.15);
 
     setProperty(role, {
       darker,
@@ -41,9 +41,26 @@ function CSSGeneratorPage({}: CSSGeneratorPageProps) {
   }
 
   useEffect(() => {
-    const cssTexts = `:root ${JSON.stringify(rawCssVar, null, 3)
+    const cssTexts = `:root ${JSON.stringify({ ...rawCssVar }, null, 3)
       .replace(/#(.*?)"/g, "#$1;")
-      .replace(/"|,/g, "")}`;
+      .replace(/"|,/g, "")}
+      \n@media (prefers-color-scheme: dark){
+  :root{
+    --white:${rawCssVar["--black"]};
+    --black:${rawCssVar["--white"]};
+    --surface-darker:${rawCssVar["--background-darker"]};
+    --surface-dark:${rawCssVar["--background-darker"]};
+    --surface-base:${rawCssVar["--background-base"]};
+    --surface-light:${rawCssVar["--background-light"]};
+    --surface-lighter:${rawCssVar["--background-lighter"]};
+    --background-darker:${rawCssVar["--surface-darker"]};
+    --background-dark:${rawCssVar["--surface-darker"]};
+    --background-base:${rawCssVar["--surface-base"]};
+    --background-light:${rawCssVar["--surface-light"]};
+    --background-lighter:${rawCssVar["--surface-lighter"]};
+   }
+}
+      `;
     switch (cssType) {
       case "css":
         return setCodeTexts(cssTexts);
@@ -76,6 +93,11 @@ function CSSGeneratorPage({}: CSSGeneratorPageProps) {
           </p>
         </div>
         <div className="flex flex-col space-y-4 pt-4">
+          <h2 className="text-zinc-50 uppercase text-xs">BACL & WHITE</h2>
+          <ShinyPaper className="flex-1 w-fit p-2 flex space-x-2 items-center justify-between rounded-md overflow-hidden relative bg-gradient-to-r from-zinc-900 to-zinc-950 border border-zinc-800 p-2'">
+            <ColorBox value={"#FFFFFF"} />
+            <ColorBox value={"#000000"} />
+          </ShinyPaper>
           <ColorPicker
             name="primary"
             value={cssVar.primary}
