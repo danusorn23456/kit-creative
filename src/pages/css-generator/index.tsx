@@ -174,7 +174,7 @@ function CSSGeneratorPage({}: CSSGeneratorPageProps) {
             </div>
           </div>
           {/* still thinking about reuse code block component */}
-          <CodeBlock code={codeTexts} type="css" />
+          <CodeBlock code={codeTexts} type="css" copy={false} />
         </div>
       </main>
     </MainLayout>
